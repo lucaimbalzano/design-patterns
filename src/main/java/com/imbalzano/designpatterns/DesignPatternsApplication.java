@@ -1,9 +1,11 @@
 package com.imbalzano.designpatterns;
 
-import com.imbalzano.designpatterns.factorymethod.BaseFactoryBuilderCustomer;
-import com.imbalzano.designpatterns.factorymethod.customer.AlienCustomerFactory;
-import com.imbalzano.designpatterns.factorymethod.customer.LocalCustomerFactory;
+import com.imbalzano.designpatterns.factory.BaseFactoryBuilder;
+import com.imbalzano.designpatterns.factory.CustomerFactory;
+import com.imbalzano.designpatterns.factory.EmployerFactory;
+import com.imbalzano.designpatterns.factory.IAbstractFactory;
 import com.imbalzano.designpatterns.ipojo.ICustomer;
+import com.imbalzano.designpatterns.pojo.employer.Employer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,12 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DesignPatternsApplication {
 
     public static void main(String[] args) {
-        BaseFactoryBuilderCustomer baseFactoryBuilderLocalCustomer = new LocalCustomerFactory();
-        ICustomer localCustomerFactory = baseFactoryBuilderLocalCustomer.buildCustomer(" 1234, LocalStreet, Arizona AR");
-
-        BaseFactoryBuilderCustomer baseFactoryBuilderAlienCustomer = new AlienCustomerFactory();
-        ICustomer alienCustomerFactory = baseFactoryBuilderAlienCustomer.buildCustomer(" 4321, AlienStreet, Florida FL");
-
+        EmployerFactory employerFactory = (EmployerFactory) BaseFactoryBuilder.getFactory("employer");
+        Employer employer = employerFactory.create("normal");
+        employer.iExist();
         SpringApplication.run(DesignPatternsApplication.class, args);
     }
 

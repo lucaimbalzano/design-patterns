@@ -2,7 +2,7 @@
 ## Creational Design Pattern
 
 ### Schema
-![Factory Method](img/factory-method-design-pattern.png)
+![Factory Method](img/abstractFactoryPettern.png)
 
  + What you can di with an Abstract Factory
     - Allows you to create families of related objects without specifying a concrete class

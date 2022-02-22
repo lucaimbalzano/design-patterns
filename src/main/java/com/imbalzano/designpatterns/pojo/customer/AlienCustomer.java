@@ -1,4 +1,4 @@
-package com.imbalzano.designpatterns.pojo;
+package com.imbalzano.designpatterns.pojo.customer;
 
 import com.imbalzano.designpatterns.ipojo.ICustomer;
 import lombok.Data;
@@ -13,6 +13,11 @@ public class AlienCustomer implements ICustomer {
     private int longitude;
 
     public AlienCustomer(String countryCode){this.countryCode = countryCode;}
+
+    @Override
+    public String getCustomer() {
+        return "alien";
+    }
 
     @Override
     public void setSmile() {
