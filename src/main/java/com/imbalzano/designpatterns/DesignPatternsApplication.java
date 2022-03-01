@@ -1,22 +1,37 @@
 package com.imbalzano.designpatterns;
 
-import com.imbalzano.designpatterns.factorymethod.BaseFactoryBuilderCustomer;
-import com.imbalzano.designpatterns.factorymethod.customer.AlienCustomerFactory;
-import com.imbalzano.designpatterns.factorymethod.customer.LocalCustomerFactory;
-import com.imbalzano.designpatterns.ipojo.ICustomer;
+import com.imbalzano.designpatterns.dto.Customer;
+import com.imbalzano.designpatterns.dto.sport.Sport;
+import com.imbalzano.designpatterns.dto.sport.TypologySports;
+import com.imbalzano.designpatterns.dto.transport.CarTransport;
+import com.imbalzano.designpatterns.strategy.behavior.SportBehavior;
+import com.imbalzano.designpatterns.strategy.behavior.TransportBehavior;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.Date;
 
 @SpringBootApplication
 public class DesignPatternsApplication {
 
+
+    /*
+     In this way we decide which kind of customer behaviours
+     have the customer encapsulating the code
+     */
     public static void main(String[] args) {
-        BaseFactoryBuilderCustomer baseFactoryBuilderLocalCustomer = new LocalCustomerFactory();
-        ICustomer localCustomerFactory = baseFactoryBuilderLocalCustomer.buildCustomer(" 1234, LocalStreet, Arizona AR");
+        System.out.println("### START MAIN ###");
 
-        BaseFactoryBuilderCustomer baseFactoryBuilderAlienCustomer = new AlienCustomerFactory();
-        ICustomer alienCustomerFactory = baseFactoryBuilderAlienCustomer.buildCustomer(" 4321, AlienStreet, Florida FL");
+        Customer customerBasketCar = new Customer();
+        customerBasketCar.setBirth(new Date(20-20-20));
+        customerBasketCar.setFirstname("Frank");
+        customerBasketCar.setIdCardNumber("CA7098E5");
+        customerBasketCar.setSurname("Gregory");
+        System.out.println("### SPORT: "+customerBasketCar.getSport(TypologySports.BASKET)==null ? "Null Value Retrived" : "### "+customerBasketCar.getSport(TypologySports.BASKET)+" ###");
+        System.out.println("### TRANSPORT: "+ customerBasketCar.getTransport("CAR")==null ? "Null Value Retrived" :  "### "+customerBasketCar.getTransport("CAR")+" ###");
+        System.out.println(customerBasketCar.toStringObj(customerBasketCar));
 
+        System.out.println("### END MAIN ###");
         SpringApplication.run(DesignPatternsApplication.class, args);
     }
 
