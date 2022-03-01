@@ -6,12 +6,13 @@ All Design Patterns: Creationals, Structurals, Behaviorals
 ``
 $ git checkout name-branch
 ``
-- name branches:
 
 
-## Creationals Patterns
-factory-abstract-design-pattern
-factory-method-design-pattern
-## Behaviorals Patterns
-strategy-pattern
-## Structurals Patterns
+
+ ## name branches:
+###Creationals Patterns
+- factory-abstract-design-pattern
+- factory-method-design-pattern
+### Behaviorals Patterns
+- strategy-pattern
+### Structurals Patterns
